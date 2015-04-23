@@ -62,7 +62,9 @@ public class ServStat extends HttpServlet {
 			out.println("<h1>Server is alive.</h1>");
 			Map<String, ? extends ServletRegistration> servletRegistrations = request.getServletContext().getServletRegistrations();
 			for (Object key : servletRegistrations.keySet()){
-				out.println("<bold>Key: " + key.toString() + " Value: " + servletRegistrations.get(key) + "</bold><br>");
+				out.println("<bold>Key: " + key.toString() + " Value: " + servletRegistrations.get(key) +
+						"<br> Mapping: " + servletRegistrations.get(key).getMappings() + "</bold><br><br>");
+				
 			}
 			out.println("</body></html>");
 		}else if(sStat == 1){
